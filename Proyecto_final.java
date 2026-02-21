@@ -1,13 +1,16 @@
 import javax.sound.sampled.*;
+import java.io.File;
 import java.util.Scanner;
 
 public class Proyecto_final {
-    private final Scanner sc = new Scanner(System.in);
-    private final mensaje_perdedor mp = new mensaje_perdedor();
-    private final mensaje_perdedor2 mp2 = new mensaje_perdedor2();
-    private final inventario i = new inventario();
+    private Scanner sc = new Scanner(System.in);
+    private mensaje_ganador mg = new mensaje_ganador();
+    private mensaje_perdedor mp = new mensaje_perdedor();
+    private mensaje_perdedor2 mp2 = new mensaje_perdedor2();
+    private inventario i = new inventario();
+    private iniciar_musica musica = new iniciar_musica();
     private Clip musicaMenu;
-    private final reproducirEfecto reproducirEfecto = new reproducirEfecto();
+    private reproducirEfecto reproducirEfecto = new reproducirEfecto();
     private Boolean linterna = false;
     private Boolean hacha = false;
     private Boolean maza = false;
@@ -20,8 +23,8 @@ public class Proyecto_final {
     }
 
     public void juego() {
-        while (juegoActivo) {
-            iniciar_musica.iniciar_musica_juego(musicaMenu);
+        do {
+            musica.iniciar_musica_juego(musicaMenu);
             System.out.println("========================🌲☘️ Ecos del Bosque Roto ☘️🌲========================");
             i.inventario(linterna, hacha, maza, llaves);
             System.out.println("Despiertas en un bosque oscuro rodeado de árboles muy altos, no llevas nada más que una camiseta negra, una chaqueta, unos pantalones medio rasgados, unas zapatillas de correr desgastadas y un gorro, debido a la situación, tus sentidos se han agudizado, escuchas ruidos variados desde múltiples direcciones. Tienes tan solo de referencia un árbol marcado con un trébol, debes moverte, elige un camino:");
@@ -209,31 +212,31 @@ public class Proyecto_final {
                                     System.out.println("1. Si ✅");
                                     System.out.println("2. No 🔴");
                                     opcion = sc.nextInt();
-                                        switch (opcion){
-                                            case 1:
-                                                System.out.println("Al entrar en la cabaña ves a un hombre con una manta que le cubre por completo, parece asustado. Tratas de hablar con él y cuando se da la vuelta ves que es muy parecido a ti. Juntos tratáis de explicar vuestra situación. Tras un largo rato recuperáis energía y discutís sobre lo que debéis hacer.");
-                                                reproducirEfecto.reproducir("chirrido-de-puerta-335976 (mp3cut.net).wav");
-                                                System.out.println("¿Qué haréis?");
-                                                System.out.println("1. Pasar la noche en la cabaña 🌙🛖");
-                                                System.out.println("2. Salir de noche 🌙🚶🏼‍♂️‍➡️");
-                                                opcion = sc.nextInt();
-                                                    switch (opcion){
-                                                        case 1:
-                                                            reproducirEfecto.reproducir("fire-crackling-sounds-427410 (mp3cut.net).wav");
-                                                            System.out.println("Te despiertas, y al alzar la mirada ves a un grupo de personas encapuchadas que tienen a tu compañero amenazado por un cuchillo.  Te dicen: “deberíais haberos ido” Acto seguido degüellan a tu compañero y al momento sientes como tu pecho se hunde y acabas muriendo por un ataque al corazón");
-                                                            mp2.mensaje_perdedor2(sc, juegoActivo);
-                                                            continue;
-                                                        case 2:
-                                                            reproducirEfecto.reproducir("chirrido-de-puerta-335976 (mp3cut.net).wav");
-                                                            System.out.println("Decidís salir rápidamente de noche, tú iluminas el camino con tu linterna y tu compañero vigila los alrededores. Al cabo de un rato, te golpeas contra una pared. Todo este tiempo el bosque era falso, tu compañero y tu sois clones.  Has formado parte de un experimento que muestra si fuéramos capaces de confiar en nosotros mismos de forma literal");
-                                                            mensaje_ganador.mensaje_ganador();
-                                                            juegoActivo = false;
-                                                    }
-                                            case 2:
-                                                System.out.println("Decides no entrar, continúas por el bosque, está muy oscuro, no logras ver nada, escuchas a tu alrededor el sonido del agua, pero no logras intuir de dónde viene.  Logras llegar a un río y al otro lado ves un grupo de varias figuras extrañas observándote. Asustado, tratas de darte la vuelta y huir, pero es demasiado tarde. Te tenían rodeado. Uno de ellos te agarra por el cuello y te estrangula. Antes de morir ves que en su muñeca tiene tatuado un trébol");
-                                                mp2.mensaje_perdedor2(sc, juegoActivo);
-                                                continue;
-                                        }
+                                    switch (opcion){
+                                        case 1:
+                                            System.out.println("Al entrar en la cabaña ves a un hombre con una manta que le cubre por completo, parece asustado. Tratas de hablar con él y cuando se da la vuelta ves que es muy parecido a ti. Juntos tratáis de explicar vuestra situación. Tras un largo rato recuperáis energía y discutís sobre lo que debéis hacer.");
+                                            reproducirEfecto.reproducir("chirrido-de-puerta-335976 (mp3cut.net).wav");
+                                            System.out.println("¿Qué haréis?");
+                                            System.out.println("1. Pasar la noche en la cabaña 🌙🛖");
+                                            System.out.println("2. Salir de noche 🌙🚶🏼‍♂️‍➡️");
+                                            opcion = sc.nextInt();
+                                            switch (opcion){
+                                                case 1:
+                                                    reproducirEfecto.reproducir("fire-crackling-sounds-427410 (mp3cut.net).wav");
+                                                    System.out.println("Te despiertas, y al alzar la mirada ves a un grupo de personas encapuchadas que tienen a tu compañero amenazado por un cuchillo.  Te dicen: “deberíais haberos ido” Acto seguido degüellan a tu compañero y al momento sientes como tu pecho se hunde y acabas muriendo por un ataque al corazón");
+                                                    mp2.mensaje_perdedor2(sc, juegoActivo);
+                                                    continue;
+                                                case 2:
+                                                    reproducirEfecto.reproducir("chirrido-de-puerta-335976 (mp3cut.net).wav");
+                                                    System.out.println("Decidís salir rápidamente de noche, tú iluminas el camino con tu linterna y tu compañero vigila los alrededores. Al cabo de un rato, te golpeas contra una pared. Todo este tiempo el bosque era falso, tu compañero y tu sois clones.  Has formado parte de un experimento que muestra si fuéramos capaces de confiar en nosotros mismos de forma literal");
+                                                    mg.mensaje_ganador();
+                                                    juegoActivo = false;
+                                            }
+                                        case 2:
+                                            System.out.println("Decides no entrar, continúas por el bosque, está muy oscuro, no logras ver nada, escuchas a tu alrededor el sonido del agua, pero no logras intuir de dónde viene.  Logras llegar a un río y al otro lado ves un grupo de varias figuras extrañas observándote. Asustado, tratas de darte la vuelta y huir, pero es demasiado tarde. Te tenían rodeado. Uno de ellos te agarra por el cuello y te estrangula. Antes de morir ves que en su muñeca tiene tatuado un trébol");
+                                            mp2.mensaje_perdedor2(sc, juegoActivo);
+                                            continue;
+                                    }
                             }
                         case 2:
                             System.out.println("Antes de dirigirte a la cabaña, exploras los alrededores. Hay un montón de pieles de conejo apiladas en un tocón y hay varios árboles marcados con un trébol. Al revisar uno de ellos encuentras un hacha oxidada ");
@@ -293,10 +296,11 @@ public class Proyecto_final {
                                             System.out.println("Esperas y de pronto ves el cañón de una escopeta a través de una ventana. Ves todo negro, no queda nada de ti, solo sientes que te has equivocado. Antes de quedarte sumido en el profundo vacío de la muerte, tienes una visión. Ves un símbolo de un trébol que está en varios lugares distintos. Escuchas ecos de tu propia de voz diciéndote que lo intentes una vez más");
                                             reproducirEfecto.reproducir("shotgun-sounds-6464 (mp3cut.net).wav");
                                             mp.mensaje_perdedor();
+                                            continue;
                                     }
                             }
                     }
             }
-        }
+        } while(juegoActivo);
     }
 }
