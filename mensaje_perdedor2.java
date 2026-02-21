@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.Scanner;
 
 public class mensaje_perdedor2 {
-    public void mensaje_perdedor2(Scanner sc){
+    public void mensaje_perdedor2(Scanner sc, boolean juegoActivo){
         System.out.println("\n");
         System.out.println("   ____    _    __  __ _____    _____     _______ ____  ");
         System.out.println("  / ___|  / \\  |  \\/  | ____|  / _ \\ \\   / / ____|  _ \\ ");
@@ -27,6 +27,7 @@ public class mensaje_perdedor2 {
             System.out.println("Reiniciando el juego, tomaste una buena decisión");
         }else if (decision == 2) {
             System.out.println("Saliendo del programa... Eres un inútil");
+            juegoActivo = false;
             try {
                 // CORRECCIÓN 1: Quitamos las comillas dobles escapadas (\") que sobraban dentro de la ruta
                 String ruta = "Sonidos\\081790_quotgame-overquot-evil-88883 (mp3cut.net).wav";
