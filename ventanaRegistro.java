@@ -41,7 +41,7 @@ public class ventanaRegistro extends JFrame{
         camponombreRegistro.setCaretColor(Color.WHITE); // Blanco
         add(camponombreRegistro);
 
-        contrasenaRegistro = new JLabel("Contraseña:");
+        contrasenaRegistro = new JLabel("Contrasena:");
         contrasenaRegistro.setBounds(60, 100, 200, 20);
         contrasenaRegistro.setForeground(Color.WHITE); // Texto en blanco
         contrasenaRegistro.setFont(fuenteEtiquetas);
@@ -57,7 +57,7 @@ public class ventanaRegistro extends JFrame{
         // Declaracion y configuracion de boton para registrar usuario
         // Usamos la variable de arriba
         registrar = new JButton("Registrar usuario");
-        registrar.setBounds(90, 150, 180, 30);
+        registrar.setBounds(90, 180, 200, 20);
         registrar.setFocusPainted(false);
         registrar.setBackground(Color.decode("#0D1B2A")); // Fondo oscuro
         registrar.setForeground(Color.decode("#61FFB5")); // Verde menta suave

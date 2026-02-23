@@ -107,8 +107,9 @@ public class VentanaLogin extends JFrame {
                 }
             } else if (nombre.equals(getUsername()) && contrasenaIngresada.equals(getPassword())) {
                 JOptionPane.showMessageDialog(null, "Iniciando sesion " + nombre);
-                Proyecto_final pf = new Proyecto_final();
-                pf.juego();
+                dispose();
+                ventanaIniciarJuego inicio = new  ventanaIniciarJuego();
+                inicio.setVisible(true);
             }
         });
 
@@ -117,13 +118,11 @@ public class VentanaLogin extends JFrame {
             public void mouseEntered(MouseEvent e) {
                 inicioSesion.setBackground(Color.decode("#61FFB5")); // Se vuelve más claro el verde
             }
-
             public void mouseExited(MouseEvent e) {
                 inicioSesion.setBackground(Color.decode("#00FF80")); // Vuelve al verde neón original
             }
         });
     }
-
     // Estos métodos (getters) permiten que otras clases lean el valor de las variables privadas,
     // pero al no existir un método "set", no pueden modificarlas. Así protegemos la integridad de los datos.
     public String getUsername() {
