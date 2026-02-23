@@ -22,6 +22,26 @@ public class Proyecto_final {
         ventanaRegistro.setVisible(true);
     }
 
+    /*Método para validad que el usuario escriba 1 o 2 y no otro número o letra
+     */
+    private int leerOpcion() {
+        int opcion;
+        while (true) {
+            System.out.print("➤ Elige una opción (1 o 2): ");
+            if (sc.hasNextInt()) {
+                opcion = sc.nextInt();
+                if (opcion == 1 || opcion == 2) {
+                    return opcion;
+                } else {
+                    System.out.println("⚠️ Opción no válida. Debes elegir 1 o 2.");
+                }
+            } else {
+                System.out.println("⚠️ Entrada no válida. Introduce un número.");
+                sc.next(); // Limpia el buffer para evitar bucle infinito
+            }
+        }
+    }
+
     public void juego() {
         do {
             musica.iniciar_musica_juego(musicaMenu);
@@ -32,7 +52,7 @@ public class Proyecto_final {
             System.out.println("Hacia que zona decides avanzar");
             System.out.println("1. Moverse por la parte izquierda del arbol marcado ‍🚶🏼‍♂️️");
             System.out.println("2. Moverse por la parte derecha del arbol marcado 🚶🏼‍♂️‍➡️");
-            opcion = sc.nextInt();
+            opcion = leerOpcion(); // Método de validación
             switch (opcion) {
                 case 1:
                     System.out.println("Su eleccion fue avanzar por la parte izquierda del arbol marcado");
@@ -41,7 +61,7 @@ public class Proyecto_final {
                     System.out.println("¿Qué decides hacer?");
                     System.out.println("1. Subirte al árbol más cercano 🏃🏼‍♂️‍➡️⬆️🌲");
                     System.out.println("2. Moverte más rápido para pasar el camino 🏃🏼‍♂️️💨");
-                    opcion = sc.nextInt();
+                    opcion = leerOpcion();
                     switch (opcion) {
                         case 1:
                             System.out.println("Su eleccion fue subes al arbol mas cercano");
@@ -50,7 +70,7 @@ public class Proyecto_final {
                             System.out.println("¿Decides bajar a cogerlas?");
                             System.out.println("1. Si ✅");
                             System.out.println("2. No 🔴");
-                            opcion = sc.nextInt();
+                            opcion = leerOpcion();
                             switch (opcion) {
                                 case 1:
                                     llaves = true;
@@ -67,14 +87,14 @@ public class Proyecto_final {
                                     System.out.println("¿Qué camino elegirias?");
                                     System.out.println("1. Ir por donde el grupo 👨🏿‍👩🏻‍👧🏾‍👦🏽");
                                     System.out.println("2. Ir en dirección contraria al grupo ❌👨🏿‍👩🏻‍👧🏾‍👦🏽");
-                                    opcion = sc.nextInt();
+                                    opcion = leerOpcion();
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("Moviéndote de forma cautelosa siguiendo las huellas que van dejando el grupo te encuentras con una enorme aldea de personas, coges unos ropajes que encuentras y caminas por la aldea hasta un callejón en la que ves a varias personas encerradas en jaulas. Asustado metes las manos en los bolsillos y tocas las llaves ");
                                             reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
                                             System.out.println("1. Pruebas a abrir las jaulas ⛓️‍💥");
                                             System.out.println("2. Decides continuar tu camino ➡️🚶🏼‍♂️‍➡️");
-                                            opcion = sc.nextInt();
+                                            opcion = leerOpcion();
                                             switch (opcion) {
                                                 case 1:
                                                     System.out.println("Tratas de abrir las jaulas, pero tardas demasiado en encontrar las llaves para cada una de ellas. Las personas atrapadas parecen idénticas unas de otras, llevan las mismas prendas y sus rostros son iguales. Al tratar de rescatar a una mujer, se te caen las llaves y al cogerlas, el grupo al que habías seguido te atrapa. En sus túnicas llevan el símbolo de un trébol ");
@@ -92,7 +112,7 @@ public class Proyecto_final {
                                             reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
                                             System.out.println("1. Dialogas 💬");
                                             System.out.println("2. Corres 🏃🏼‍♂️‍➡️");
-                                            opcion = sc.nextInt();
+                                            opcion = leerOpcion();
                                             switch (opcion) {
                                                 case 1:
                                                     System.out.println("Hablas con el hombre, es un señor mayor equipado con los típicos pertrechos de un cazador veterano. Te dice que tengas cuidado, que hay un grupo de personas que están experimentando con seres humanos. Te invita a ir con el grupo de cazadores y te ofrecen una tienda de campaña donde dormir por unas horas. Al despertar, ves que no hay nadie. Tan solo una nota con el dibujo de un trébol y un texto que dice: “no confíes en nadie, más que en ti mismo” Tras leerlo sientes una presión en el pecho y acabas muriendo");
@@ -114,7 +134,7 @@ public class Proyecto_final {
                             System.out.println("¿Decides darte la vuelta?");
                             System.out.println("1. Si ✅");
                             System.out.println("2. No 🔴");
-                            opcion = sc.nextInt();
+                            opcion = leerOpcion();
                             switch (opcion) {
                                 case 1:
                                     System.out.println("Le echas valor y al darte la vuelta ves que era un pequeño conejito cogiendo bellotas. Logras tranquilizarte y decides seguir el camino seco donde a ves un pasadizo que lleva a una pequeña cabaña  ");
@@ -122,7 +142,7 @@ public class Proyecto_final {
                                     System.out.println("¿Qué decides a hacer?");
                                     System.out.println("1. Mirar los alrededores 🔎");
                                     System.out.println("2. Entrar a la cabaña 🚶🏼‍♂️‍➡️🛖");
-                                    opcion = sc.nextInt();
+                                    opcion = leerOpcion();
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("Encuentras la entrada al sótano de la cabaña, ves unos tablones y decides tapiar la entrada. Te sientes más seguro, no hace tanto frío, pero sigues indefenso. Exploras la cabaña y encuentras comida, ropa y una pequeña estufa con la que entrar en calor. Cuando consigues sentirte cómodo, escuchas un ruido");
@@ -130,7 +150,7 @@ public class Proyecto_final {
                                             System.out.println("¿Qué vas a hacer?");
                                             System.out.println("1. Comprobar su origen 🧏🏼");
                                             System.out.println("2. Esconderse 🐢");
-                                            opcion = sc.nextInt();
+                                            opcion = leerOpcion();
                                             switch (opcion) {
                                                 case 1:
                                                     System.out.println("Abres la puerta y ves que eres tu mismo, pero completamente tatuado con tréboles. Todo se vuelve oscuro y tan solo escuchas una voz de ti mismo diciéndote “estás cerca, puedes conseguirlo”");
@@ -148,7 +168,7 @@ public class Proyecto_final {
                                             System.out.println("¿Qué vas a hacer?");
                                             System.out.println("1. Comprobar su origen 🧏🏼🔎");
                                             System.out.println("2. Esconderse 🐢");
-                                            opcion = sc.nextInt();
+                                            opcion = leerOpcion();
                                             switch (opcion) {
                                                 case 1:
                                                     System.out.println("Al tener la escopeta en tus manos te sientes fuerte, pero realmente no sabes utilizarla, tratas de asomarte por la ventana cercana a la puerta y debido a los nervios disparas sin querer. Asustado, abres la puerta y te ves a ti mismo tirado en el suelo.  Hay una marca en la entrada de un trébol");
@@ -175,7 +195,7 @@ public class Proyecto_final {
                     System.out.println("¿Qué decides hacer?");
                     System.out.println("1. Dirigirse hacia la figura 🚶🏼‍♂️‍➡️🗿");
                     System.out.println("2. Explorar el entorno 🔎🌲🌳");
-                    opcion = sc.nextInt();
+                    opcion = leerOpcion();
                     switch (opcion) {
                         case 1:
                             System.out.println("Conforme te acercas a la cabaña empiezas a ver plantas muertas, bandejas de comida tiradas por los alrededores y ves iluminación proveniente de una chimenea dentro de la cabaña. Hay una ventana medio abierta por la que cabes");
@@ -183,7 +203,7 @@ public class Proyecto_final {
                             System.out.println("¿Decides entrar");
                             System.out.println("1. Si ✅");
                             System.out.println("2. No 🔴");
-                            opcion = sc.nextInt();
+                            opcion = leerOpcion();
                             switch (opcion) {
                                 case 1:
                                     System.out.println("Entras sin hacer ningún ruido, te llega un olor a carne quemada y comienzas a escuchar murmullos de una persona. Al asomarte a la chimenea, ves a una persona apuntándote con una escopeta");
@@ -191,7 +211,7 @@ public class Proyecto_final {
                                     System.out.println("Aterrorizado solo tienes dos posibles opciones, ¿Cuál decides?");
                                     System.out.println("1. Dialogar 💬");
                                     System.out.println("2. Correr 🏃🏼‍♂️‍➡️");
-                                    opcion = sc.nextInt();
+                                    opcion = leerOpcion();
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("Tratas de explicarte y notas como tu atacante está tan sorprendido como tú, al fijarte más en los detalles de su rostro, sientes una similitud contigo mismo, pero antes de decir nada recibes un disparo en el estómago y al caer al suelo ves en el techo el símbolo del trébol");
@@ -211,7 +231,7 @@ public class Proyecto_final {
                                     System.out.println("¿Entras en la cabaña?");
                                     System.out.println("1. Si ✅");
                                     System.out.println("2. No 🔴");
-                                    opcion = sc.nextInt();
+                                    opcion = leerOpcion();
                                     switch (opcion){
                                         case 1:
                                             System.out.println("Al entrar en la cabaña ves a un hombre con una manta que le cubre por completo, parece asustado. Tratas de hablar con él y cuando se da la vuelta ves que es muy parecido a ti. Juntos tratáis de explicar vuestra situación. Tras un largo rato recuperáis energía y discutís sobre lo que debéis hacer.");
@@ -219,7 +239,7 @@ public class Proyecto_final {
                                             System.out.println("¿Qué haréis?");
                                             System.out.println("1. Pasar la noche en la cabaña 🌙🛖");
                                             System.out.println("2. Salir de noche 🌙🚶🏼‍♂️‍➡️");
-                                            opcion = sc.nextInt();
+                                            opcion = leerOpcion();
                                             switch (opcion){
                                                 case 1:
                                                     reproducirEfecto.reproducir("fire-crackling-sounds-427410 (mp3cut.net).wav");
@@ -244,7 +264,7 @@ public class Proyecto_final {
                             System.out.println("¿Decides coger el hacha?");
                             System.out.println("1. Si ✅");
                             System.out.println("2. No 🔴");
-                            opcion = sc.nextInt();
+                            opcion = leerOpcion();
                             switch (opcion) {
                                 case 1:
                                     hacha = true;
@@ -253,7 +273,7 @@ public class Proyecto_final {
                                     System.out.println("¿decides romperlas con el hacha? ");
                                     System.out.println("1. Si ✅");
                                     System.out.println("2. No 🔴");
-                                    opcion = sc.nextInt();
+                                    opcion = leerOpcion();
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("Al romper la madera haces un ruido tremendo y sientes como alguien dentro de la casa, comienza a correr por ella. Debido a la situación, sin pensarlo, corres escaleras arriba y atacas a alguien idéntico a ti.  Sientes una fuerte presión en el pecho y acabas muriendo sobre tu propio cadáver");
@@ -265,7 +285,7 @@ public class Proyecto_final {
                                             reproducirEfecto.reproducir("door-knock-291150 (mp3cut.net).wav");
                                             System.out.println("1. Pasar la noche en la cabaña 🌙➡️☀️");
                                             System.out.println("2. Salir de noche 🌙🚶🏼‍♂️‍➡️");
-                                            opcion = sc.nextInt();
+                                            opcion = leerOpcion();
                                             switch (opcion) {
                                                 case 1:
                                                     System.out.println("Pasáis la noche en vela, no podéis dormir, no entendéis cómo es posible que todo esto haya ocurrido. Empezáis a dudar el uno de otro. Os enfrentáis por ver quien es el verdadero tú");
@@ -285,7 +305,7 @@ public class Proyecto_final {
                                     System.out.println("Le echas valor y decides ponerte en guardia ¿Qué harás?");
                                     System.out.println("1. Golpear antes de aproximarse");
                                     System.out.println("2. Esperar  a que se aproxime");
-                                    opcion = sc.nextInt();
+                                    opcion = leerOpcion();
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("Sin pensarlo dos veces, asestas un golpe certero contra una persona que cae redonda contra el suelo. Tus manos están manchadas de sangre, la maza se ha partido por el golpe y en la parte alta del mango reconoces el símbolo de un trébol. La persona que tienes a tus pies eres tu mismo, no entiendes cómo es posible. Sientes una presión en el corazón y acabas muriendo");
