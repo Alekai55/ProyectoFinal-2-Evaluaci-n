@@ -107,9 +107,9 @@ public class VentanaLogin extends JFrame {
                 }
             } else if (nombre.equals(getUsername()) && contrasenaIngresada.equals(getPassword())) {
                 JOptionPane.showMessageDialog(null, "Iniciando sesion " + nombre);
+                Proyecto_final pf = new  Proyecto_final();
                 dispose();
-                ventanaIniciarJuego inicio = new  ventanaIniciarJuego();
-                inicio.setVisible(true);
+                pf.juego(img);
             }
         });
 
