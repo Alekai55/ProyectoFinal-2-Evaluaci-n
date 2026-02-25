@@ -4,7 +4,8 @@ import java.awt.*;
 
 public class VentanaJuego extends JFrame{
 
-    private JPanel imagePanel, bottomPanel, buttonPanel;
+    private JPanel  bottomPanel, buttonPanel;
+    private BackgroundPanel imagePanel;
     private JLabel imageLabel;
     private JTextArea mainTextArea;
     private JButton choice1, choice2;
@@ -90,12 +91,20 @@ public class VentanaJuego extends JFrame{
         return boton;
     }
 
+    public void actualizarEscena(String texto, String boton1, String boton2, String rutaImagen){
+
+        mainTextArea.setText(texto);
+        choice1.setText(boton1);
+        choice2.setText(boton2);
+        if(rutaImagen != null){
+        imagePanel.setImagen(new ImageIcon(rutaImagen).getImage());}
+
+    }
     public void actualizarEscena(String texto, String boton1, String boton2){
 
         mainTextArea.setText(texto);
         choice1.setText(boton1);
         choice2.setText(boton2);
-
     }
 
     class BackgroundPanel extends JPanel {
@@ -112,6 +121,12 @@ public class VentanaJuego extends JFrame{
                 // Dibuja la imagen estirándola para que ocupe el 100% de este panel
                 g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             }
+        }
+        public Image getImagen() {
+            return this.imagen;
+        }
+        public void setImagen(Image imagen) {
+            this.imagen = imagen;
         }
     }
 
