@@ -44,6 +44,11 @@ public class Proyecto_final {
 
     public void juego() {
         do {
+            // Reiniciar inventario en cada intento
+            linterna = false;
+            hacha = false;
+            maza = false;
+            llaves = false;
             musica.iniciar_musica_juego(musicaMenu);
             System.out.println("========================🌲☘️ Ecos del Bosque Roto ☘️🌲========================");
             i.inventario(linterna, hacha, maza, llaves);
