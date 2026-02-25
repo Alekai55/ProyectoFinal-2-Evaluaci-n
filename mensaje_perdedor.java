@@ -7,5 +7,6 @@ public class mensaje_perdedor {
         System.out.println(" | |_| |/ ___ \\| |  | | |___  | |_| |\\ V / | |___|  _ < ");
         System.out.println("  \\____/_/   \\_\\_|  |_|_____|  \\___/  \\_/  |_____|_| \\_\\");
         System.out.println("\n=======================💀 Tu historia termina aquí 💀=======================\n");
+
     }
 }

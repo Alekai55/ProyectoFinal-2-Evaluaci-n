@@ -33,7 +33,7 @@ public class inventario extends JDialog {
         img2 = new ImageIcon(imagenEscalada);
 
         volver = new JButton(img2);
-    volver.setBounds(184, 150, 16, 16);
+        volver.setBounds(184, 150, 16, 16);
         panelConFondo.add(volver);
 
         volver.addActionListener(e -> dispose());

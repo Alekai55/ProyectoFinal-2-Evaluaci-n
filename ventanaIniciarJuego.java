@@ -35,7 +35,13 @@ public class ventanaIniciarJuego extends JFrame {
 
         // BOTÓN
         iniciarJuego = new JButton("Iniciar Juego");
-        iniciarJuego.setBounds(120, 150, 150, 40); // posición y tamaño
+        iniciarJuego.setBounds(120, 150, 150, 40);
+        iniciarJuego.setFocusPainted(false);
+        iniciarJuego.setBackground(new Color(40, 15, 60));       // fondo púrpura oscuro
+        iniciarJuego.setForeground(new Color(144, 238, 144));    // texto verde claro
+        iniciarJuego.setFont(new Font("Monospaced", Font.BOLD, 16));
+        iniciarJuego.setBorder(BorderFactory.createLineBorder(new Color(150, 60, 200), 2));
+        iniciarJuego.setCursor(new Cursor(Cursor.HAND_CURSOR));
         fondo.add(iniciarJuego);
 
         iniciarJuego.addActionListener(e -> {
