@@ -108,8 +108,8 @@ public class VentanaLogin extends JFrame {
             } else if (nombre.equals(getUsername()) && contrasenaIngresada.equals(getPassword())) {
                 JOptionPane.showMessageDialog(null, "Iniciando sesion " + nombre);
                 dispose();//asi se quita la ventana sóla y dejar iniciar el juego
-                Proyecto_final pf = new Proyecto_final();
-                pf.juego();
+                VentanaJuego interfaz = new VentanaJuego();
+                interfaz.setVisible(true);
             }
         });
 

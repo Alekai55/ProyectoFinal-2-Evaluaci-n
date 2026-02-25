@@ -4,10 +4,12 @@ import java.awt.*;
 
 public class VentanaJuego extends JFrame{
 
-    public JPanel imagePanel, bottomPanel, buttonPanel;
-    public JLabel imageLabel;
-    public JTextArea mainTextArea;
-    public JButton choice1, choice2;
+    private JPanel imagePanel, bottomPanel, buttonPanel;
+    private JLabel imageLabel;
+    private JTextArea mainTextArea;
+    private JButton choice1, choice2;
+    private Proyecto_final juego = new Proyecto_final(this);
+
 
     public VentanaJuego(){
 
@@ -20,14 +22,14 @@ public class VentanaJuego extends JFrame{
         setResizable(false); // asi evita que se vea grande, ya que es una pantalla pequeña
         setLayout(new BorderLayout());
 
-        interfaz();
+        crearInterfaz();
 
     }
 
-    private void interfaz(){
+    private void crearInterfaz(){
 
 
-        imagePanel = new BackgroundPanel("ruta/a/tu/imagen.png");
+        imagePanel = new BackgroundPanel("ruta_imagen.png");
         imagePanel.setBackground(Color.BLACK); // Fondo negro por si la imagen no carga
 
         add(imagePanel, BorderLayout.CENTER);
@@ -38,7 +40,7 @@ public class VentanaJuego extends JFrame{
         bottomPanel.setBorder(new EmptyBorder(20, 50, 30, 50));
         bottomPanel.setBackground(Color.decode("#0D1B2A")); // Mismo color de tu fondo general
 
-        mainTextArea = new JTextArea("Texto");
+        mainTextArea = new JTextArea("Despiertas en un bosque oscuro rodeado de árboles muy altos, no llevas nada más que una camiseta negra, una chaqueta, unos pantalones medio rasgados, unas zapatillas de correr desgastadas y un gorro, debido a la situación, tus sentidos se han agudizado, escuchas ruidos variados desde múltiples direcciones. Tienes tan solo de referencia un árbol marcado con un trébol, debes moverte, elige un camino:\"");
         mainTextArea.setBackground(Color.decode("#0D1B2A"));
         mainTextArea.setForeground(Color.WHITE); // Texto en blanco para contrastar
         mainTextArea.setFont(new Font("Book Antiqua", Font.PLAIN, 20));
@@ -57,8 +59,15 @@ public class VentanaJuego extends JFrame{
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10)); // 1 fila, 2 columnas, 20px separación horizontal
 
         // Crear botones
-        choice1 = crearBoton("Elección 1");
-        choice2 = crearBoton("Elección 2");
+        choice1 = crearBoton("Moverse por la parte izquierda del arbol marcado");
+        choice1.setActionCommand("opcion 1");
+        choice1.addActionListener(juego);
+
+        choice2 = crearBoton("Moverse por la parte derecha del arbol marcado");
+        choice2.setActionCommand("opcion 2");
+        choice2.addActionListener(juego);
+
+        // Agregar botones al panel
 
 
         buttonPanel.add(choice1);
@@ -79,6 +88,14 @@ public class VentanaJuego extends JFrame{
         boton.setMargin(new Insets(10,20,10,20));
         boton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         return boton;
+    }
+
+    public void actualizarEscena(String texto, String boton1, String boton2){
+
+        mainTextArea.setText(texto);
+        choice1.setText(boton1);
+        choice2.setText(boton2);
+
     }
 
     class BackgroundPanel extends JPanel {
