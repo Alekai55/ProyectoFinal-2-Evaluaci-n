@@ -3,13 +3,13 @@ public class inventario {
         System.out.println("Este es el inventario de tu partida actual:");
         System.out.println("================================================================");
         if (linterna == true){
-            System.out.println("- Linterna 🔦, recuerda lo que paso cuando decidiste cogerlas ☘️");
+            System.out.println("- Linterna 🔦, recuerda lo que paso cuando decidiste cogerla ☘️");
         }
         if (hacha == true){
-            System.out.println("- Hacha 🪓, recuerda lo que paso cuando decidiste cogerlas ☘️");
+            System.out.println("- Hacha 🪓, recuerda lo que paso cuando decidiste cogerla ☘️");
         }
         if (maza == true){
-            System.out.println("- Maza 🔨, recuerda lo que paso cuando decidiste cogerlas ☘️");
+            System.out.println("- Maza 🔨, recuerda lo que paso cuando decidiste cogerla ☘️");
         }
         if (llaves == true){
             System.out.println("- Llaves 🗝️, recuerda lo que paso cuando decidiste cogerlas ☘️");
@@ -20,3 +20,4 @@ public class inventario {
         System.out.println("================================================================");
     }
 }
+
