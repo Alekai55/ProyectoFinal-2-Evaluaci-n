@@ -18,200 +18,220 @@ public class Proyecto_final implements ActionListener {
     private Boolean llaves = false;
     private boolean juegoActivo = true;
     private VentanaJuego interfaz;
+    private String escenaActual = "inicio";
+
 
     public Proyecto_final(VentanaJuego interfaz) {
         this.interfaz = interfaz;
         interfaz.setVisible(true);
     }
-    public static void main(String[] args) {
-        ventanaRegistro ventanaRegistro = new ventanaRegistro();
-        ventanaRegistro.setVisible(true);
 
+    public static void main(String[] args) {
+        ventanaRegistro registro = new ventanaRegistro();
+        registro.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e) {
         String opcionElegida = e.getActionCommand();
 
-            musica.iniciar_musica_juego(musicaMenu);
-            i.inventario(linterna, hacha, maza, llaves);
+        musica.iniciar_musica_juego(musicaMenu);
+        i.inventario(linterna, hacha, maza, llaves);
+        switch (escenaActual) {
+case "inicio":
+    if(opcionElegida.equals("opcion 1")) {
+        //caminoIzda
+        interfaz.actualizarEscena(
+                "Sigues por un camino donde la tierra comienza a humedecerse y sientes como se te empiezan a hundir los pies en charcas de lodo. ¿Qué decides hacer?",
+                "Subirte al árbol más cercano",
+                "Moverte más rápido para pasar el camino"
+        );
+        escenaActual = "caminoIzda";
+    }else{
+        reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
+        interfaz.actualizarEscena(
+                "Su eleccion fue avanzar por la parte derecha del arbol marcado. Sigues por un camino tranquilo en el que de pronto ves una extraña figura a la lejanía, entrando a lo que parece una cabaña. ¿Qué decides hacer?",
+                "Dirigirse hacia la figura",
+                "Explorar el entorno"
+        );
+        escenaActual = "caminoDcha";
+    }
+    break;
+case "caminoIzda":
+    if(opcionElegida.equals("opcion 1")) {
+            //subirArbol
+            reproducirEfecto.reproducir("climbingdownfromtree-97783 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Su eleccion fue subes al arbol mas cercano, al hacerlo acabas cansado así que decides reposar un poco. Al cabo de unos minutos escuchas unas campanas sonar, y ves como un grupo de personas encapuchadas pasan por debajo de ti. A uno de ellos se le caen unas llaves. ¿Decides bajar a cogerlas?",
+                    "Si",
+                    "No"
+            );
+            escenaActual = "subirArbol";
+    }else{
+        //moverRapido
 
-            switch (opcionElegida) {
-                case "opcion 1":
-                    interfaz.actualizarEscena(
-                            "Sigues por un camino donde la tierra comienza a humedecerse y sientes como se te empiezan a hundir los pies en charcas de lodo. ¿Qué decides hacer?",
-                            "Subirte al árbol más cercano",
-                            "Moverte más rápido para pasar el camino"
-                    );
-                    switch (opcionElegida) {
-                        case "opcion 1":
-                            reproducirEfecto.reproducir("climbingdownfromtree-97783 (mp3cut.net).wav");
-                            interfaz.actualizarEscena(
-                                    "Su eleccion fue subes al arbol mas cercano, al hacerlo acabas cansado así que decides reposar un poco. Al cabo de unos minutos escuchas unas campanas sonar, y ves como un grupo de personas encapuchadas pasan por debajo de ti. A uno de ellos se le caen unas llaves. ¿Decides bajar a cogerlas?",
-                                    "Si",
-                                    "No"
-                            );
-                            switch (opcionElegida) {
-                                case "opcion 1":
-                                    llaves = true;
-                                    reproducirEfecto.reproducir("tintineo-de-llaves-333884 (mp3cut.net).wav");
-                                    interfaz.actualizarEscena(
-                                            "Elegiste bajar a coger las llaves. Al intentar bajar, se te engancha la chaqueta a una de las ramas y caes a plomo contra el suelo haciendo mucho ruido. El grupo se da la vuelta y corren a por ti.",
-                                            "",
-                                            ""
-                                    );
-                                    mp.mensaje_perdedor();
-                                    break;
-                                case "opcion 2":
-                                    llaves = true;
-                                    reproducirEfecto.reproducir("tintineo-de-llaves-333884 (mp3cut.net).wav");
-                                    interfaz.actualizarEscena(
-                                            "Decidiste no bajar a por las llaves. Decides esperar a que se vayan. Bajas cautelosamente del árbol y guardas las llaves en el bolsillo de tu chaqueta. Pesan bastante y tienen formas extrañas. Están manchadas de algo aceitoso. ¿Qué camino elegirias? \"",
-                                            "Ir por donde el grupo",
-                                            "Ir en dirección contraria al grupo"
-                                    );
-                                    switch (opcionElegida) {
-                                        case "opcion 1":
-                                            reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
-                                            interfaz.actualizarEscena(
-                                                    "Moviéndote de forma cautelosa siguiendo las huellas que van dejando el grupo te encuentras con una enorme aldea de personas, coges unos ropajes que encuentras y caminas por la aldea hasta un callejón en la que ves a varias personas encerradas en jaulas. Asustado metes las manos en los bolsillos y tocas las llaves.\"",
-                                                    "Pruebas a abrir las jaulas",
-                                                    "Decides continuar tu camino"
-                                            );
-                                            switch (opcionElegida) {
-                                                case "opcion 1":
-                                                    reproducirEfecto.reproducir("hit-cage-45988 (mp3cut.net).wav");
-                                                    interfaz.actualizarEscena(
-                                                            "Tratas de abrir las jaulas, pero tardas demasiado en encontrar las llaves para cada una de ellas. Las personas atrapadas parecen idénticas unas de otras, llevan las mismas prendas y sus rostros son iguales. Al tratar de rescatar a una mujer, se te caen las llaves y al cogerlas, el grupo al que habías seguido te atrapa. En sus túnicas llevan el símbolo de un trébol.\"",
-                                                            "",
-                                                            ""
-                                                    );
-                                                    mp.mensaje_perdedor();
-                                                    break;
-                                                case "opcion 2":
-                                                    reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
-                                                    interfaz.actualizarEscena(
-                                                            "Continuas por el callejón y al llegar al final de este, una mujer encerrada te dice: “no podrás salir de aquí, no tú solo contigo mismo” Extrañado por sus palabras sales del callejón y te encuentras de frente con el grupo al que estabas siguiendo. Te atrapan. En sus túnicas llevan el símbolo de un trébol\"",
-                                                            "",
-                                                            ""
-                                                    );
-                                                    mp.mensaje_perdedor();
-                                                    break;
-                                            }
-                                        case "opcion 2":
-                                            reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
-                                            interfaz.actualizarEscena(
-                                                    "Al ir en dirección contraria al grupo, te llevan a un camino donde ves a varios grupos de personas que parecen ser cazadores de conejos. Uno de ellos se percata de tu presencia y comienza a gritarte.No parece querer hacerte daño, pero va armado. \"",
-                                                    "Dialogas",
-                                                    "Corres"
-                                            );
-                                            switch (opcionElegida) {
-                                                case "opcion 1":
-                                                    reproducirEfecto.reproducir("murmullos-7133 (mp3cut.net).wav");
-                                                    interfaz.actualizarEscena(
-                                                            "Hablas con el hombre, es un señor mayor equipado con los típicos pertrechos de un cazador veterano. Te dice que tengas cuidado, que hay un grupo de personas que están experimentando con seres humanos. Te invita a ir con el grupo de cazadores y te ofrecen una tienda de campaña donde dormir por unas horas. Al despertar, ves que no hay nadie. Tan solo una nota con el dibujo de un trébol y un texto que dice: “no confíes en nadie, más que en ti mismo” Tras leerlo sientes una presión en el pecho y acabas muriendo \"",
-                                                            "",
-                                                            ""
-                                                    );
-                                                    mp.mensaje_perdedor();
-                                                    break;
-                                                case "opcion 2":
-                                                    reproducirEfecto.reproducir("running-in-the-woods-65579 (mp3cut.net).wav");
-                                                    interfaz.actualizarEscena(
-                                                            "Sales corriendo, de fondo escuchas silbidos y sonidos de los cazadores corriendo tras de ti. Comienzan a dispararte, saltas hacia un árbol caído para recuperar el aliento. Reposas un poco y antes de seguir corriendo ves la marca de un trébol en el árbol donde te has cubierto. El hombre que se acercó a ti te grita: “No deberías haber huido, tu solo no vas a conseguirlo” Te han disparado en la cabeza, no ha servido de nada huir, has sido un cobarde. \"",
-                                                            "",
-                                                            ""
-                                                    );
-                                                    mp.mensaje_perdedor();
-                                                    break;
-                                            }
-                                    }
-                            }
-                        case "opcion 2":
-                            reproducirEfecto.reproducir("running-in-the-woods-65579 (mp3cut.net).wav");
-                            interfaz.actualizarEscena(
-                                     "Escoges moverte rapido para pasar el camino. Pasas corriendo por los enormes charcos de lodo y tropiezas con una piedra marcada con un trébol. Al levantarte sientes una presencia detrás de ti, estás atemorizado, pero curioso. ¿Decides darte la vuelta?",
-                                    "Si",
-                                    "No"
-                            );
-                            switch (opcionElegida) {
-                                case "opcion 1":
-                                    reproducirEfecto.reproducir("a-rabbit-is-eating-a-cucumber-28700 (mp3cut.net).wav");
-                                    interfaz.actualizarEscena(
-                                            "Le echas valor y al darte la vuelta ves que era un pequeño conejito cogiendo bellotas. Logras tranquilizarte y decides seguir el camino seco donde a ves un pasadizo que lleva a una pequeña cabaña. ¿Qué decides a hacer?",
-                                            "Mirar los alrededores",
-                                            "Entrar a la cabaña"
-                                    );
-                                    switch (opcionElegida) {
-                                        case "opcion 1":
-                                            reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
-                                            interfaz.actualizarEscena(
-                                                    "Encuentras la entrada al sótano de la cabaña, ves unos tablones y decides tapiar la entrada. Te sientes más seguro, no hace tanto frío, pero sigues indefenso. Exploras la cabaña y encuentras comida, ropa y una pequeña estufa con la que entrar en calor. Cuando consigues sentirte cómodo, escuchas un ruido",
-                                                    "Comprobar el origen del ruido",
-                                                    "Esconderse"
-                                            );
-                                            switch (opcionElegida) {
-                                                case "opcion 1":
-                                                    reproducirEfecto.reproducir("opening-door-411632 (mp3cut.net).wav");
-                                                    interfaz.actualizarEscena(
-                                                            "Abres la puerta y ves que eres tu mismo, pero completamente tatuado con tréboles. Todo se vuelve oscuro y tan solo escuchas una voz de ti mismo diciéndote “estás cerca, puedes conseguirlo“",
-                                                            "",
-                                                            ""
-                                                    );
-                                                    mp.mensaje_perdedor();
-                                                    break;
-                                                case "opcion 2":
-                                                    reproducirEfecto.reproducir("cabinet-door-close-47724 (mp3cut.net).wav");
-                                                    interfaz.actualizarEscena(
-                                                            "Apagas rápidamente la estufa  y te escondes en un armario cerca de la entrada. En la parte interior de la puerta del armario ves un trébol tallado. Sientes una presión en el pecho, has muerto",
-                                                            "",
-                                                            ""
-                                                    );
-                                                    mp.mensaje_perdedor();
-                                                    break;
-                                            }
-//                                        case "opcion 2":
-//                                            System.out.println("Entras en la cabaña por la puerta principal. No hay nadie, se respira un ambiente frío y desolador, cierras todas las puertas y ventanas y encuentras una manta que te cubre todo el cuerpo, comida y una hoguera que logras encender con unas cerillas que había.  Encuentras una escopeta y en ese preciso momento escuchas un ruido");
-//                                            System.out.println("¿Qué vas a hacer?");
-//                                            System.out.println("1. Comprobar su origen 🧏🏼🔎");
-//                                            System.out.println("2. Esconderse 🐢");
-//                                            opcion = leerOpcion();
-//                                            switch (opcion) {
-//                                                case 1:
-//                                                    System.out.println("Al tener la escopeta en tus manos te sientes fuerte, pero realmente no sabes utilizarla, tratas de asomarte por la ventana cercana a la puerta y debido a los nervios disparas sin querer. Asustado, abres la puerta y te ves a ti mismo tirado en el suelo.  Hay una marca en la entrada de un trébol");
-//                                                    reproducirEfecto.reproducir("shotgun-sounds-6464 (mp3cut.net).wav");
-//                                                    mp.mensaje_perdedor();
-//                                                    continue;
-//                                                case 2:
-//                                                    System.out.println("Piensas rápidamente donde podrías esconderte y al ir a apagar la hoguera, la puerta se abre de golpe y sientes un profundo dolor que te tumba al suelo. Lo último que logras ver es el símbolo del trébol en la pared interior de la chimenea");
-//                                                    reproducirEfecto.reproducir("cabinet-door-close-47724 (mp3cut.net).wav");
-//                                                    mp.mensaje_perdedor();
-//                                                    continue;
-//                                            }
-//                                    }
-//                                case 2:
-//                                    System.out.println("Te quedas congelado, tratas de moverte hacia adelante, pero notas como algo empieza a tocarte la espalda y de repente sientes un golpe muy fuerte que te tira al suelo y acto seguido mueres ");
-//                                    mp.mensaje_perdedor();
-//                                    continue;
-//                            }
-//                    }
-//                case 2:
-//                    System.out.println("Su eleccion fue avanzar por la parte derecha del arbol marcado");
-//                    System.out.println("Sigues por un camino tranquilo en el que de pronto ves una extraña figura a la lejanía, entrando a lo que parece una cabaña ");
-//                    reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
-//                    System.out.println("¿Qué decides hacer?");
-//                    System.out.println("1. Dirigirse hacia la figura 🚶🏼‍♂️‍➡️🗿");
-//                    System.out.println("2. Explorar el entorno 🔎🌲🌳");
-//                    opcion = leerOpcion();
-//                    switch (opcion) {
-//                        case 1:
-//                            System.out.println("Conforme te acercas a la cabaña empiezas a ver plantas muertas, bandejas de comida tiradas por los alrededores y ves iluminación proveniente de una chimenea dentro de la cabaña. Hay una ventana medio abierta por la que cabes");
-//                            reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
-//                            System.out.println("¿Decides entrar");
-//                            System.out.println("1. Si ✅");
-//                            System.out.println("2. No 🔴");
-//                            opcion = leerOpcion();
-//                            switch (opcion) {
-//                                case 1:
+        reproducirEfecto.reproducir("running-in-the-woods-65579 (mp3cut.net).wav");
+        interfaz.actualizarEscena(
+                "Escoges moverte rapido para pasar el camino. Pasas corriendo por los enormes charcos de lodo y tropiezas con una piedra marcada con un trébol. Al levantarte sientes una presencia detrás de ti, estás atemorizado, pero curioso. ¿Decides darte la vuelta?",
+                "Si",
+                "No"
+        );
+        escenaActual = "moverRapido";
+    }
+    break;
+    case "caminoDcha":
+        if(opcionElegida.equals("opcion 1")) {
+            reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Conforme te acercas a la cabaña empiezas a ver plantas muertas, bandejas de comida tiradas por los alrededores y ves iluminación proveniente de una chimenea dentro de la cabaña. Hay una ventana medio abierta por la que cabes. ¿Decides entrar?\n",
+                    "Si",
+                    "No"
+            );
+            escenaActual = "seguirFiguraCabaña";
+        }else{
+            reproducirEfecto.reproducir("flashlight-clicking-on-and-off-71252 (mp3cut.net).wav");
+            linterna = true;
+            interfaz.actualizarEscena(
+                    "Decides comprobar los alrededores antes de entrar y encuentras un cobertizo con varias herramientas rotas. Logras rescatar una linterna de mucha potencia. ¿Entras en la cabaña?",
+                    "Si",
+                    "No"
+            );
+            escenaActual = "cobertizo";
+        }break;
+        case "subirArbol":
+            if(opcionElegida.equals("opcion 1")) {
+            //gameover bajarLlaves
+            llaves = true;
+            reproducirEfecto.reproducir("tintineo-de-llaves-333884 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Elegiste bajar a coger las llaves. Al intentar bajar, se te engancha la chaqueta a una de las ramas y caes a plomo contra el suelo haciendo mucho ruido. El grupo se da la vuelta y corren a por ti.",
+                    "",
+                    ""
+            );
+            mp.mensaje_perdedor();}
+else{
+            //esperarLlaves
+            llaves = true;
+            reproducirEfecto.reproducir("tintineo-de-llaves-333884 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Decidiste no bajar a por las llaves. Decides esperar a que se vayan. Bajas cautelosamente del árbol y guardas las llaves en el bolsillo de tu chaqueta. Pesan bastante y tienen formas extrañas. Están manchadas de algo aceitoso. ¿Qué camino elegirias? \"",
+                    "Ir por donde el grupo",
+                    "Ir en dirección contraria al grupo"
+            );
+            escenaActual = "esperarLlaves";
+}break;
+            case "esperarLlaves":
+            //seguirGrupo
+            reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Moviéndote de forma cautelosa siguiendo las huellas que van dejando el grupo te encuentras con una enorme aldea de personas, coges unos ropajes que encuentras y caminas por la aldea hasta un callejón en la que ves a varias personas encerradas en jaulas. Asustado metes las manos en los bolsillos y tocas las llaves.\"",
+                    "Pruebas a abrir las jaulas",
+                    "Decides continuar tu camino"
+            );
+            //abrirJaulas
+            reproducirEfecto.reproducir("hit-cage-45988 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Tratas de abrir las jaulas, pero tardas demasiado en encontrar las llaves para cada una de ellas. Las personas atrapadas parecen idénticas unas de otras, llevan las mismas prendas y sus rostros son iguales. Al tratar de rescatar a una mujer, se te caen las llaves y al cogerlas, el grupo al que habías seguido te atrapa. En sus túnicas llevan el símbolo de un trébol.\"",
+                    "",
+                    ""
+            );
+            mp.mensaje_perdedor();
+            //noabrirJaulas
+            reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Continuas por el callejón y al llegar al final de este, una mujer encerrada te dice: “no podrás salir de aquí, no tú solo contigo mismo” Extrañado por sus palabras sales del callejón y te encuentras de frente con el grupo al que estabas siguiendo. Te atrapan. En sus túnicas llevan el símbolo de un trébol\"",
+                    "",
+                    ""
+            );
+            mp.mensaje_perdedor();
+
+
+            //nosegurGrupo
+            reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Al ir en dirección contraria al grupo, te llevan a un camino donde ves a varios grupos de personas que parecen ser cazadores de conejos. Uno de ellos se percata de tu presencia y comienza a gritarte.No parece querer hacerte daño, pero va armado. \"",
+                    "Dialogas",
+                    "Corres"
+            );
+            //dialogarCazador
+            reproducirEfecto.reproducir("murmullos-7133 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Hablas con el hombre, es un señor mayor equipado con los típicos pertrechos de un cazador veterano. Te dice que tengas cuidado, que hay un grupo de personas que están experimentando con seres humanos. Te invita a ir con el grupo de cazadores y te ofrecen una tienda de campaña donde dormir por unas horas. Al despertar, ves que no hay nadie. Tan solo una nota con el dibujo de un trébol y un texto que dice: “no confíes en nadie, más que en ti mismo” Tras leerlo sientes una presión en el pecho y acabas muriendo \"",
+                    "",
+                    ""
+            );
+            mp.mensaje_perdedor();
+            //huirCazador
+            reproducirEfecto.reproducir("running-in-the-woods-65579 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Sales corriendo, de fondo escuchas silbidos y sonidos de los cazadores corriendo tras de ti. Comienzan a dispararte, saltas hacia un árbol caído para recuperar el aliento. Reposas un poco y antes de seguir corriendo ves la marca de un trébol en el árbol donde te has cubierto. El hombre que se acercó a ti te grita: “No deberías haber huido, tu solo no vas a conseguirlo” Te han disparado en la cabeza, no ha servido de nada huir, has sido un cobarde. \"",
+                    "",
+                    ""
+            );
+            mp.mensaje_perdedor();
+
+            //darselavueltaCamino
+            reproducirEfecto.reproducir("a-rabbit-is-eating-a-cucumber-28700 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Le echas valor y al darte la vuelta ves que era un pequeño conejito cogiendo bellotas. Logras tranquilizarte y decides seguir el camino seco donde a ves un pasadizo que lleva a una pequeña cabaña. ¿Qué decides a hacer?",
+                    "Mirar los alrededores",
+                    "Entrar a la cabaña"
+            );
+            //mirarAlrededoresCabaña
+            reproducirEfecto.reproducir("going-on-a-forest-road-gravel-and-grass-6404 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Encuentras la entrada al sótano de la cabaña, ves unos tablones y decides tapiar la entrada. Te sientes más seguro, no hace tanto frío, pero sigues indefenso. Exploras la cabaña y encuentras comida, ropa y una pequeña estufa con la que entrar en calor. Cuando consigues sentirte cómodo, escuchas un ruido",
+                    "Comprobar el origen del ruido",
+                    "Esconderse"
+            );
+            //ruidoSotano
+            reproducirEfecto.reproducir("opening-door-411632 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Abres la puerta y ves que eres tu mismo, pero completamente tatuado con tréboles. Todo se vuelve oscuro y tan solo escuchas una voz de ti mismo diciéndote “estás cerca, puedes conseguirlo“",
+                    "",
+                    ""
+            );
+            mp.mensaje_perdedor();
+            //esconderseSotano
+            reproducirEfecto.reproducir("cabinet-door-close-47724 (mp3cut.net).wav");
+            interfaz.actualizarEscena(
+                    "Apagas rápidamente la estufa  y te escondes en un armario cerca de la entrada. En la parte interior de la puerta del armario ves un trébol tallado. Sientes una presión en el pecho, has muerto",
+                    "",
+                    ""
+            );
+            mp.mensaje_perdedor();
+
+            //entrarCabaña
+                interfaz.actualizarEscena(
+                        "Entras en la cabaña por la puerta principal. No hay nadie, se respira un ambiente frío y desolador, cierras todas las puertas y ventanas y encuentras una manta que te cubre todo el cuerpo, comida y una hoguera que logras encender con unas cerillas que había.  Encuentras una escopeta y en ese preciso momento escuchas un ruido",
+                        "Comprobar origen del ruido",
+                        "Esconderse"
+                );
+                escenaActual = "entrarCabaña";
+            //ruidoCabaña
+                reproducirEfecto.reproducir("shotgun-sounds-6464 (mp3cut.net).wav");
+                interfaz.actualizarEscena(
+                        "Al tener la escopeta en tus manos te sientes fuerte, pero realmente no sabes utilizarla, tratas de asomarte por la ventana cercana a la puerta y debido a los nervios disparas sin querer. Asustado, abres la puerta y te ves a ti mismo tirado en el suelo.  Hay una marca en la entrada de un trébol",
+                        "",
+                        ""
+                );
+                mp.mensaje_perdedor();
+            //esconderteCabaña
+                reproducirEfecto.reproducir("cabinet-door-close-47724 (mp3cut.net).wav");
+                interfaz.actualizarEscena(
+                        "Piensas rápidamente donde podrías esconderte y al ir a apagar la hoguera, la puerta se abre de golpe y sientes un profundo dolor que te tumba al suelo. Lo último que logras ver es el símbolo del trébol en la pared interior de la chimenea",
+                        "",
+                        ""
+                );
+                mp.mensaje_perdedor();
+
+            //nodarselavueltaCamino
+                interfaz.actualizarEscena(
+                        "Te quedas congelado, tratas de moverte hacia adelante, pero notas como algo empieza a tocarte la espalda y de repente sientes un golpe muy fuerte que te tira al suelo y acto seguido mueres",
+                        "",
+                        ""
+                );
+                mp.mensaje_perdedor();
+            //
 //                                    System.out.println("Entras sin hacer ningún ruido, te llega un olor a carne quemada y comienzas a escuchar murmullos de una persona. Al asomarte a la chimenea, ves a una persona apuntándote con una escopeta");
 //                                    reproducirEfecto.reproducir("window-open-89994 (mp3cut.net).wav");
 //                                    System.out.println("Aterrorizado solo tienes dos posibles opciones, ¿Cuál decides?");
@@ -230,13 +250,6 @@ public class Proyecto_final implements ActionListener {
 //                                            mp.mensaje_perdedor();
 //                                            continue;
 //                                    }
-//                                case 2:
-//                                    linterna = true;
-//                                    System.out.println("Decides comprobar los alrededores antes de entrar y encuentras un cobertizo con varias herramientas rotas. Logras rescatar una linterna de mucha potencia.");
-//                                    reproducirEfecto.reproducir("flashlight-clicking-on-and-off-71252 (mp3cut.net).wav");
-//                                    System.out.println("¿Entras en la cabaña?");
-//                                    System.out.println("1. Si ✅");
-//                                    System.out.println("2. No 🔴");
 //                                    opcion = leerOpcion();
 //                                    switch (opcion){
 //                                        case 1:
@@ -323,9 +336,6 @@ public class Proyecto_final implements ActionListener {
 //                                            reproducirEfecto.reproducir("shotgun-sounds-6464 (mp3cut.net).wav");
 //                                            mp.mensaje_perdedor();
 //                                            continue;
-                                    }
-                            }
-                    }
-            }
-
-    }}
+        }
+    }
+}

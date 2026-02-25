@@ -19,7 +19,7 @@ public class VentanaJuego extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Centra la ventana
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setResizable(false); // asi evita que se vea grande, ya que es una pantalla pequeña
+        setResizable(true); // asi evita que se vea grande, ya que es una pantalla pequeña
         setLayout(new BorderLayout());
 
         crearInterfaz();
