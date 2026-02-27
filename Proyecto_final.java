@@ -49,6 +49,10 @@ public class Proyecto_final {
 
     public void juego(ImageIcon img) {
         do {
+            boolean linterna = false;
+            boolean maza = false;
+            boolean hacha = false;
+            boolean llaves = false;
             musica.iniciar_musica_juego(musicaMenu);
             System.out.println("========================🌲☘️ Ecos del Bosque Roto ☘️🌲========================");
             System.out.println("Despiertas en un bosque oscuro rodeado de árboles muy altos, no llevas nada más que una camiseta negra, una chaqueta, unos pantalones medio rasgados, unas zapatillas de correr desgastadas y un gorro, debido a la situación, tus sentidos se han agudizado, escuchas ruidos variados desde múltiples direcciones. Tienes tan solo de referencia un árbol marcado con un trébol, debes moverte, elige un camino:");
