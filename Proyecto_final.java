@@ -1,7 +1,5 @@
-
 import javax.sound.sampled.*;
 import javax.swing.*;
-import java.io.File;
 import java.util.Scanner;
 
 public class Proyecto_final {
@@ -40,10 +38,10 @@ public class Proyecto_final {
                     inv = new inventario(linterna,hacha,maza,llaves,img);// Si es 3, abre la mochila y el bucle vuelve a pedir una opción
                     inv.setVisible(true);
                 } else {
-                    System.out.println("⚠️ Opción no válida. Debes elegir 1, 2 o 3.");
+                    System.out.println("Opción no válida. Debes elegir 1, 2 o 3.");
                 }
             } else {
-                System.out.println("⚠️ Entrada no válida. Introduce un número.");
+                System.out.println("Entrada no válida. Introduce un número.");
                 sc.next(); // Limpia el buffer para evitar bucle infinito
             }
         }
@@ -51,6 +49,10 @@ public class Proyecto_final {
 
     public void juego(ImageIcon img) {
         do {
+            boolean linterna = false;
+            boolean maza = false;
+            boolean hacha = false;
+            boolean llaves = false;
             musica.iniciar_musica_juego(musicaMenu);
             System.out.println("========================🌲☘️ Ecos del Bosque Roto ☘️🌲========================");
             System.out.println("Despiertas en un bosque oscuro rodeado de árboles muy altos, no llevas nada más que una camiseta negra, una chaqueta, unos pantalones medio rasgados, unas zapatillas de correr desgastadas y un gorro, debido a la situación, tus sentidos se han agudizado, escuchas ruidos variados desde múltiples direcciones. Tienes tan solo de referencia un árbol marcado con un trébol, debes moverte, elige un camino:");
