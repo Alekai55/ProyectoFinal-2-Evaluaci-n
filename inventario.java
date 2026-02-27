@@ -4,11 +4,11 @@ import java.awt.*;
 public class inventario extends JDialog {
     private JButton volver;
     private JLabel texto;
-    private Image llave = new ImageIcon("llave.png").getImage();
-    private Image maza = new ImageIcon("maza.png").getImage();
-    private Image hacha = new ImageIcon("hacha.png").getImage();
-    private Image linterna = new ImageIcon("linterna.png").getImage();
-    private Image nada = new ImageIcon("nada.png").getImage();
+    private Image llave = new ImageIcon("img/llave.png").getImage();
+    private Image maza = new ImageIcon("img/maza.png").getImage();
+    private Image hacha = new ImageIcon("img/hacha.png").getImage();
+    private Image linterna = new ImageIcon("img/linterna.png").getImage();
+    private Image nada = new ImageIcon("img/nada.png").getImage();
 
     public inventario(boolean linterna, boolean hacha, boolean maza, boolean llaves, ImageIcon img) {
         setTitle("Inventario");
@@ -28,7 +28,7 @@ public class inventario extends JDialog {
         texto.setForeground(Color.WHITE);
         panelConFondo.add(texto); // Añadir al panel directamente
 
-        ImageIcon img2 = new ImageIcon("mochila.png");
+        ImageIcon img2 = new ImageIcon("img/mochila.png");
         Image imagenEscalada = img2.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
         img2 = new ImageIcon(imagenEscalada);
 

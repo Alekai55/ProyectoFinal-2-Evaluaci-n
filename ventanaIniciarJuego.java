@@ -4,7 +4,7 @@ import java.awt.*;
 public class ventanaIniciarJuego extends JFrame {
 
     private JButton iniciarJuego;
-    ImageIcon img = new ImageIcon("logo_trebol.png");
+    ImageIcon img = new ImageIcon("img/logo_trebol.png");
 
     // PANEL PERSONALIZADO PARA EL FONDO
     class PanelConFondo extends JPanel {
@@ -29,7 +29,7 @@ public class ventanaIniciarJuego extends JFrame {
         setIconImage(img.getImage());
 
         // PANEL DE FONDO
-        PanelConFondo fondo = new PanelConFondo("fondo.png");
+        PanelConFondo fondo = new PanelConFondo("img/fondo.png");
         fondo.setLayout(null); // Para colocar el botón libremente
         setContentPane(fondo);
 

@@ -4,7 +4,7 @@ import java.awt.*;
 public class ventanaRegistro extends JFrame{
     public static String username = "";
     public static String pwd = "";
-    ImageIcon img = new ImageIcon("logo_trebol.png");
+    ImageIcon img = new ImageIcon("img/logo_trebol.png");
     private JLabel tituloRegistro, usuarioRegistro, contrasenaRegistro;
     private JTextField camponombreRegistro;
     private JPasswordField campocontrasenaRegistro;

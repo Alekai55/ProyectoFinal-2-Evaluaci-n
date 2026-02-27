@@ -15,7 +15,7 @@ public class Proyecto_final {
     private Boolean maza = false;
     private Boolean llaves = false;
     private boolean juegoActivo = true;
-    ImageIcon img = new ImageIcon("logo_trebol.png");
+    ImageIcon img = new ImageIcon("img/logo_trebol.png");
     private inventario inv = new inventario(linterna, hacha, maza, llaves, img);
 
     public static void main(String[] args) {
