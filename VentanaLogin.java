@@ -12,7 +12,7 @@ public class VentanaLogin extends JFrame {
     private JTextField camponombre;
     private JPasswordField campocontrasena;
     private JButton inicioSesion;
-    ImageIcon img = new ImageIcon("logo_trebol.png");
+    ImageIcon img = new ImageIcon("img/logo_trebol.png");
 
     public VentanaLogin(String usuario, String contrasena) {
         this.username = usuario;

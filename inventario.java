@@ -18,7 +18,6 @@ public class inventario extends JDialog {
         setResizable(false);
         setIconImage(img.getImage());
 
-        // PASO 1: Pasamos los booleanos al panel al crearlo
         PanelFondo panelConFondo = new PanelFondo(linterna, hacha, maza, llaves);
         panelConFondo.setLayout(null);
         setContentPane(panelConFondo);
@@ -26,7 +25,7 @@ public class inventario extends JDialog {
         texto = new JLabel("Este es tu inventario actual");
         texto.setBounds(130, 10, 400, 20);
         texto.setForeground(Color.WHITE);
-        panelConFondo.add(texto); // Añadir al panel directamente
+        panelConFondo.add(texto);
 
         ImageIcon img2 = new ImageIcon("mochila.png");
         Image imagenEscalada = img2.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
@@ -39,9 +38,6 @@ public class inventario extends JDialog {
         volver.addActionListener(e -> dispose());
     }
 
-    // CLASE INTERNA CORREGIDA
-    // CLASE INTERNA CORREGIDA Y MEJORADA
-    // CLASE INTERNA CON TODAS LAS COMBINACIONES Y TAMAÑO COMPLETO
     private class PanelFondo extends JPanel {
         private boolean l, h, m, ll;
 
@@ -56,7 +52,6 @@ public class inventario extends JDialog {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
 
-            // 1. ACTIVAR EL "MODO HD" DE JAVA (Suavizado de bordes)
             Graphics2D g2d = (Graphics2D) g;
             g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -64,20 +59,26 @@ public class inventario extends JDialog {
             int anchoTotal = getWidth();
             int altoTotal = getHeight();
 
-            // Usamos g2d en lugar de g a partir de ahora
+            // 1. Dibujamos el fondo primero
             g2d.drawImage(nada, 0, 0, anchoTotal, altoTotal, this);
 
-            // Ejemplo linterna:
-            if (l) {
-                // Ajusta estos números si la ves estirada/aplastada
-                int xLinterna = 277;
-                int yLinterna = 50;
-                int anchoLinterna = 50;
-                int altoLinterna = 115;
-                g2d.drawImage(linterna, xLinterna, yLinterna, anchoLinterna, altoLinterna, this);
+            // 2. Dibujamos los objetos exactamente igual que el fondo.
+            // Al tener el mismo tamaño y la posición correcta en su transparencia, encajarán solos.
+            if (ll) {
+                g2d.drawImage(llave, 0, 0, anchoTotal, altoTotal, this);
             }
-            // ... (resto de objetos igual, pero con g2d)
+
+            if (m) {
+                g2d.drawImage(maza, 0, 0, anchoTotal, altoTotal, this);
+            }
+
+            if (h) {
+                g2d.drawImage(hacha, 0, 0, anchoTotal, altoTotal, this);
+            }
+
+            if (l) {
+                g2d.drawImage(linterna, 0, 0, anchoTotal, altoTotal, this);
+            }
         }
     }
-
 }
