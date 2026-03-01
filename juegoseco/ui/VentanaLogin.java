@@ -1,3 +1,5 @@
+package juegoseco.ui;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -12,7 +14,9 @@ public class VentanaLogin extends JFrame {
     private JTextField camponombre;
     private JPasswordField campocontrasena;
     private JButton inicioSesion;
-    ImageIcon img = new ImageIcon("img/logo_trebol.png");
+    //El logo es un elemento exclusivo de la interfaz de login.
+    // Al hacerlo 'private', evitamos que se reasigne la imagen por error desde el exterior.
+    private ImageIcon img = new ImageIcon("img/logo_trebol.png");
 
     public VentanaLogin(String usuario, String contrasena) {
         this.username = usuario;

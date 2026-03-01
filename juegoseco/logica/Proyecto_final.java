@@ -1,3 +1,10 @@
+package juegoseco.logica;
+
+import juegoseco.audio.iniciar_musica;
+import juegoseco.audio.reproducirEfecto;
+import juegoseco.ui.inventario;
+import juegoseco.ui.ventanaRegistro;
+
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.util.Scanner;
@@ -15,7 +22,9 @@ public class Proyecto_final {
     private Boolean maza = false;
     private Boolean llaves = false;
     private boolean juegoActivo = true;
-    ImageIcon img = new ImageIcon("img/logo_trebol.png");
+    // Hacemos el icono privado porque el motor del juego
+    //solo lo utiliza para pasarlo como parámetro al inventario. Nadie externo debe alterarlo.
+    private ImageIcon img = new ImageIcon("img/logo_trebol.png");
     private inventario inv = new inventario(linterna, hacha, maza, llaves, img);
 
     public static void main(String[] args) {
