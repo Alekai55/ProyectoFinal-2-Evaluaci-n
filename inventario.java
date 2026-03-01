@@ -37,7 +37,9 @@ public class inventario extends JDialog {
 
         volver.addActionListener(e -> dispose());
     }
-
+    //La clase panel fondo es una clase interna dentro de la clase inventario, es privada porque su única misión es dibujar el fondo y los objetos
+    //Entones sólo la utiliza inventario
+    //Al ser una clase interna, puede utilizar las variables de la clase(los objetos)
     private class PanelFondo extends JPanel {
         private boolean l, h, m, ll;
 
