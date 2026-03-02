@@ -44,7 +44,8 @@ public class Proyecto_final {
                 if (opcion == 1 || opcion == 2) {
                     return opcion; // Devuelve 1 o 2 para continuar la historia
                 } else if (opcion == 3) {
-                    inv = new inventario(linterna,hacha,maza,llaves,img);// Si es 3, abre la mochila y el bucle vuelve a pedir una opción
+                    inv = new inventario(linterna,hacha,maza,llaves,img);
+                    // Si es 3, abre la mochila y el bucle vuelve a pedir una opción
                     inv.setVisible(true);
                 } else {
                     System.out.println("Opción no válida. Debes elegir 1, 2 o 3.");
