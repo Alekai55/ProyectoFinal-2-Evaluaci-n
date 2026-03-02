@@ -284,8 +284,6 @@ public class Proyecto_final {
                                     System.out.println("Al estar oxidada es muy probable que se rompa al usarla así que decides ir camino a la cabaña y sin querer tropiezas con una maza que no habías visto así que decides cogerla e ir a la cabaña. Escuchas ruido dentro y parece aproximarse a dónde estás tu ");
                                     reproducirEfecto.reproducir("coger_hacha.wav");
                                     System.out.println("Le echas valor y decides ponerte en guardia ¿Qué harás?");
-                                    System.out.println();
-                                    System.out.println();
                                     opcion = leerOpcion("1. Golpear antes de aproximarse","2. Esperar  a que se aproxime",img);
                                     switch (opcion) {
                                         case 1:
