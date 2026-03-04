@@ -31,16 +31,15 @@ public class easteregg extends JFrame {
     public easteregg() {
 
         setTitle("Ecos del Bosque Roto");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(400, 250);
         setLocationRelativeTo(null);
         setResizable(false);
         setIconImage(img.getImage());
 
         // PANEL DE FONDO
-        PanelConFondo fondo = new PanelConFondo("img/fondo.png");
+        PanelConFondo fondo = new PanelConFondo("img/easteregg.png");
         fondo.setLayout(null); // Para colocar el botón libremente
         setContentPane(fondo);
-        dispose();
     }
 }

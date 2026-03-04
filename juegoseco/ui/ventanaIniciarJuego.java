@@ -54,9 +54,30 @@ public class ventanaIniciarJuego extends JFrame {
         fondo.add(iniciarJuego);
 
         iniciarJuego.addActionListener(e -> {
+            // 1. Cerramos la ventana actual (ventanaIniciarJuego)
             dispose();
-            Proyecto_final pf = new Proyecto_final();
-            pf.juego(img);
+
+            // 2. Mostramos el Easter Egg
+            easteregg eg  = new easteregg();
+            eg.setVisible(true);
+
+            // 3. Creamos un hilo independiente para el temporizador y el juego
+            new Thread(() -> {
+                try {
+                    // Hacemos que este hilo espere 1 segundo (1000 milisegundos)
+                    // Mientras tanto, la ventana del easter egg se estará mostrando sin congelarse
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                // 4. Pasado el segundo, cerramos el Easter Egg automáticamente
+                eg.dispose();
+
+                // 5. ¡Iniciamos el juego en la consola!
+                Proyecto_final pf = new Proyecto_final();
+                pf.juego(img);
+            }).start();
         });
     }
 }
