@@ -24,7 +24,7 @@ public class easteregg extends JFrame {
         }
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            g.drawImage(imagen, 100, 0, 200, 200, this);
         }
     }
 

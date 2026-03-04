@@ -66,7 +66,7 @@ public class ventanaIniciarJuego extends JFrame {
                 try {
                     // Hacemos que este hilo espere 1 segundo (1000 milisegundos)
                     // Mientras tanto, la ventana del easter egg se estará mostrando sin congelarse
-                    Thread.sleep(100);
+                    Thread.sleep(5000);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
