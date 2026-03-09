@@ -28,7 +28,7 @@ public class mensaje_perdedor2 {
         if (decision == 1) {
             System.out.println("Reiniciando el juego, tomaste una buena decisión");
         }else if (decision == 2) {
-            System.out.println("Saliendo del programa... Eres un inútil");
+            System.out.println("Saliendo del programa... ¿No te quedas con las ganas?");
             juegoActivo = false;
             try {
                 // CORRECCIÓN 1: Quitamos las comillas dobles escapadas (\") que sobraban dentro de la ruta
