@@ -32,7 +32,7 @@ public class mensaje_perdedor2 {
             juegoActivo = false;
             try {
                 // CORRECCIÓN 1: Quitamos las comillas dobles escapadas (\") que sobraban dentro de la ruta
-                String ruta = "Sonidos\\081790_quotgame-overquot-evil-88883 (mp3cut.net).wav";
+                String ruta = "Sonidos\\game_over.wav";
 
                 AudioInputStream audio = AudioSystem.getAudioInputStream(new File(ruta));
 
@@ -49,7 +49,7 @@ public class mensaje_perdedor2 {
                 Thread.sleep(duracionMilisegundos + 100);
 
             } catch (Exception e) {
-                System.out.println("No se pudo cargar el sonido del árbol: " + e.getMessage());
+                System.out.println("No se pudo cargar el sonido de game over: " + e.getMessage());
                 e.printStackTrace(); // Esto te ayudará a ver el error exacto en la consola si falla
             }
             System.exit(0);
