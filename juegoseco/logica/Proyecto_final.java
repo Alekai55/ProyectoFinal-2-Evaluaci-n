@@ -56,7 +56,7 @@ public class Proyecto_final {
         }
     }
 
-    public void juego(ImageIcon img) {
+    public void juego() {
         do {
             linterna = false;
             maza = false;

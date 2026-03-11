@@ -76,7 +76,7 @@ public class ventanaIniciarJuego extends JFrame {
 
                 // 5. ¡Iniciamos el juego en la consola!
                 Proyecto_final pf = new Proyecto_final();
-                pf.juego(img);
+                pf.juego();
             }).start();
         });
     }
