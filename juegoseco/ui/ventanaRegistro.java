@@ -15,7 +15,7 @@ public class ventanaRegistro extends JFrame{
     private JLabel tituloRegistro, usuarioRegistro, contrasenaRegistro;
     private JTextField camponombreRegistro;
     private JPasswordField campocontrasenaRegistro;
-    private JButton registrar = new JButton();
+    private JButton registrar;
     public ventanaRegistro() {
         getContentPane().setBackground(Color.decode("#0D1B2A"));
         setTitle("Ecos del Bosque Roto");
