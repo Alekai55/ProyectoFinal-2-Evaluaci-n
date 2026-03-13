@@ -1,0 +1,123 @@
+Index: out/production/RepositorioGitHub/.idea/.gitignore
+===================================================================
+diff --git a/out/production/RepositorioGitHub/.idea/.gitignore b/out/production/RepositorioGitHub/.idea/.gitignore
+deleted file mode 100644
+--- a/out/production/RepositorioGitHub/.idea/.gitignore	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
++++ /dev/null	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
+@@ -1,5 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+Index: out/production/RepositorioGitHub/.idea/vcs.xml
+===================================================================
+diff --git a/out/production/RepositorioGitHub/.idea/vcs.xml b/out/production/RepositorioGitHub/.idea/vcs.xml
+deleted file mode 100644
+--- a/out/production/RepositorioGitHub/.idea/vcs.xml	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
++++ /dev/null	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: out/production/RepositorioGitHub/README.md
+===================================================================
+diff --git a/out/production/RepositorioGitHub/README.md b/out/production/RepositorioGitHub/README.md
+deleted file mode 100644
+--- a/out/production/RepositorioGitHub/README.md	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
++++ /dev/null	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
+@@ -1,41 +0,0 @@
+-# 🍀 ADROMI Tech - Desarrollo Back-end y Desktop
+-
+-Bienvenido al repositorio central de código Java de **ADROMI Tech**. En nuestra consultoría no solo diseñamos interfaces web, sino que también construimos software robusto, interactivo y bien estructurado.
+-
+-Este repositorio contiene el código fuente de nuestro producto estrella: **Ecos del Bosque Roto**. Se trata de una aventura interactiva que combina interfaces gráficas (GUI) con una ejecución lógica por consola, demostrando nuestra capacidad para unir flujos visuales y algorítmicos mediante Programación Orientada a Objetos (POO).
+-
+-## 🏗️ Arquitectura del Software
+-
+-El proyecto está diseñado bajo una arquitectura modular, dividiendo las responsabilidades en tres paquetes principales para facilitar su escalabilidad y mantenimiento:
+-
+-* **`juegoseco.logica` (Core Engine):** El cerebro de la aplicación. Aquí reside `Proyecto_final.java`, que gestiona el bucle principal de ejecución, la validación de inputs del usuario y el árbol de decisiones narrativas. También integra los controladores de final de partida (`mensaje_ganador`, `mensaje_perdedor`).
+-* **`juegoseco.ui` (Interfaces Gráficas):** Desarrollado de forma nativa con la librería `javax.swing`. Gestiona el flujo de entrada del usuario mediante un sistema de registro (`ventanaRegistro`) y validación de credenciales (`VentanaLogin`). Además, incluye un inventario gráfico modal (`inventario.java`) con renderizado personalizado y ventanas de transición visual.
+-* **`juegoseco.audio` (Subsistema de Sonido):** Motor de audio implementado con `javax.sound.sampled`. Se encarga de la reproducción de pistas en bucle continuo para la ambientación (`iniciar_musica.java`) y la sincronización de efectos de sonido especiales (`reproducirEfecto.java`), controlando el tiempo de ejecución de la historia.
+-
+-## ⚙️ Características Técnicas Destacadas
+-
+-* **Encapsulamiento y Seguridad:** Uso estricto de modificadores de acceso (`private`) para proteger la integridad de los datos sensibles (como credenciales de usuario y recursos de iconos gráficos) entre las distintas instancias de las ventanas.
+-* **Multithreading (Hilos de ejecución):** Implementación de hilos secundarios (`new Thread()`) para gestionar transiciones asíncronas (como la carga del Easter Egg gráfico) sin bloquear el hilo principal de la consola.
+-* **Renderizado Personalizado:** Sobrescritura de métodos nativos como `paintComponent(Graphics g)` y uso de `Graphics2D` para crear fondos adaptativos y superponer imágenes con transparencia (canal Alpha) según el estado dinámico de los objetos del jugador.
+-
+-## 🚀 Instalación y Ejecución del Entorno Local
+-
+-Para compilar y probar el software en tu máquina:
+-
+-1.  Clona este repositorio en tu IDE preferido (recomendamos IntelliJ IDEA):
+-    ```bash
+-    git clone [https://github.com/Alekai55/ProyectoFinal-2-Evaluaci-n.git](https://github.com/Alekai55/ProyectoFinal-2-Evaluaci-n.git)
+-    ```
+-2.  Asegúrate de que las carpetas de recursos (`img/` y `Sonidos/`) se encuentran en el directorio raíz o ajusta el *Working Directory* de tu IDE para que las rutas relativas funcionen correctamente.
+-3.  Ejecuta la clase principal ubicada en: `src/juegoseco/logica/Proyecto_final.java`.
+-
+-## 👥 El Equipo (ADROMI Tech)
+-
+-* **Alejandro:** Diseñador narrativo y de interfaces. [Ver portfolio](https://alekairecords.xo.je)
+-* **Daniel:** Programador principal del motor lógico y tester. [Ver portfolio](https://danielarias.xo.je)
+-* **Román:** Gestor de sistemas informáticos y redes. [Ver portfolio](https://roman.xo.je)
+-* **Miguel:** Administrador de bases de datos y control de calidad de código. [Ver portfolio](https://miguel.xo.je)
+-
+-## 🔗 Enlaces de Interés
+-
+-* [Portal Web de ADROMI Tech (Descubre más sobre nosotros)](https://adromitech.rf.gd/?i=1)
+Index: out/production/RepositorioGitHub/RepositorioGitHub.iml
+===================================================================
+diff --git a/out/production/RepositorioGitHub/RepositorioGitHub.iml b/out/production/RepositorioGitHub/RepositorioGitHub.iml
+deleted file mode 100644
+--- a/out/production/RepositorioGitHub/RepositorioGitHub.iml	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
++++ /dev/null	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
+@@ -1,11 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="JAVA_MODULE" version="4">
+-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$">
+-      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: out/production/RepositorioGitHub/.idea/modules.xml
+===================================================================
+diff --git a/out/production/RepositorioGitHub/.idea/modules.xml b/out/production/RepositorioGitHub/.idea/modules.xml
+deleted file mode 100644
+--- a/out/production/RepositorioGitHub/.idea/modules.xml	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
++++ /dev/null	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/RepositorioGitHub.iml" filepath="$PROJECT_DIR$/RepositorioGitHub.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: out/production/RepositorioGitHub/.idea/misc.xml
+===================================================================
+diff --git a/out/production/RepositorioGitHub/.idea/misc.xml b/out/production/RepositorioGitHub/.idea/misc.xml
+deleted file mode 100644
+--- a/out/production/RepositorioGitHub/.idea/misc.xml	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
++++ /dev/null	(revision 770168407783e3d09a01f3893ae611b3393eb5cd)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_25" default="true" project-jdk-name="openjdk-25" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
+-</project>
+\ No newline at end of file
