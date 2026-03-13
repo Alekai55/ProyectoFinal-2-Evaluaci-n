@@ -37,9 +37,11 @@ public class easteregg extends JFrame {
         setResizable(false);
         setIconImage(img.getImage());
 
+
         // PANEL DE FONDO
         PanelConFondo fondo = new PanelConFondo("img/easteregg.png");
         fondo.setLayout(null); // Para colocar el botón libremente
+        fondo.setBackground(Color.black);
         setContentPane(fondo);
     }
 }

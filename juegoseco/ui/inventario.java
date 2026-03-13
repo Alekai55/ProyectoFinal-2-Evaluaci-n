@@ -15,6 +15,7 @@ public class inventario extends JDialog {
     public inventario(boolean linterna, boolean hacha, boolean maza, boolean llaves, ImageIcon img) {
         setTitle("Inventario");
         setModal(true);
+        setUndecorated(true);
         setSize(400, 250);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -24,17 +25,12 @@ public class inventario extends JDialog {
         panelConFondo.setLayout(null);
         setContentPane(panelConFondo);
 
-        texto = new JLabel("Este es tu inventario actual");
-        texto.setBounds(130, 10, 400, 20);
-        texto.setForeground(Color.WHITE);
-        panelConFondo.add(texto);
-
         ImageIcon img2 = new ImageIcon("img/mochila.png");
         Image imagenEscalada = img2.getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH);
         img2 = new ImageIcon(imagenEscalada);
 
         volver = new JButton(img2);
-        volver.setBounds(184, 150, 24, 24);
+        volver.setBounds(189, 185, 24, 24);
         panelConFondo.add(volver);
 
         volver.addActionListener(e -> dispose());
