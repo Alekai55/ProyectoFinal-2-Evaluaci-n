@@ -61,7 +61,7 @@ public class ventanaRegistro extends JFrame{
         campocontrasenaRegistro.setCaretColor(Color.WHITE);
         add(campocontrasenaRegistro);
 
-        // Declaracion y configuracion de boton para registrar usuario
+        // Declaración y configuración de botón para registrar usuario
         // Usamos la variable de arriba
         registrar = new JButton("Registrar usuario");
         registrar.setBounds(90, 150, 180, 30);
@@ -71,7 +71,7 @@ public class ventanaRegistro extends JFrame{
         registrar.setBorder(BorderFactory.createLineBorder(Color.decode("#00FF80"))); // Borde neón
         add(registrar);
 
-        // Configuramos la accion del boton al dar click en el
+        // Configuramos la acción del botón al dar click en el
         registrar.addActionListener(e -> {
             username = camponombreRegistro.getText(); // Se agrega al String username el texo incluido en el camponombre
             pwd = new String(campocontrasenaRegistro.getPassword()); // Se agrega al String pwd el texto incluido en el campocontraseña

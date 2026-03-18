@@ -68,17 +68,17 @@ public class Proyecto_final {
             System.out.println("Despiertas en un bosque oscuro rodeado de árboles muy altos, no llevas nada más que una camiseta negra, una chaqueta, unos pantalones medio rasgados, unas zapatillas de correr desgastadas y un gorro, debido a la situación, tus sentidos se han agudizado, escuchas ruidos variados desde múltiples direcciones. Tienes tan solo de referencia un árbol marcado con un trébol, debes moverte, elige un camino:");
             int opcion;
             System.out.println("Hacia que zona decides avanzar");
-            opcion = leerOpcion("1. Moverse por la parte izquierda del arbol marcado ‍🚶🏼‍♂️️","2. Moverse por la parte derecha del arbol marcado 🚶🏼‍♂️‍➡️",img); // Método de validación
+            opcion = leerOpcion("1. Moverse por la parte izquierda del árbol marcado ‍🚶🏼‍♂️️","2. Moverse por la parte derecha del árbol marcado 🚶🏼‍♂️‍➡️",img); // Método de validación
             switch (opcion) {
                 case 1:
-                    System.out.println("Su eleccion fue avanzar por la parte izquierda del arbol marcado");
+                    System.out.println("Su elección fue avanzar por la parte izquierda del árbol marcado");
                     System.out.println("Sigues por un camino donde la tierra comienza a humedecerse y sientes como se te empiezan a hundir los pies en charcas de lodo. ");
                     reproducirEfecto.reproducir("pasos_bosque.wav");
                     System.out.println("¿Qué decides hacer?");
                     opcion = leerOpcion("1. Subirte al árbol más cercano 🏃🏼‍♂️‍➡️⬆️🌲","2. Moverte más rápido para pasar el camino 🏃🏼‍♂️️💨",img);
                     switch (opcion) {
                         case 1:
-                            System.out.println("Su eleccion fue subes al arbol mas cercano");
+                            System.out.println("Su elección fue subes al árbol mas cercano");
                             System.out.println("Al hacerlo acabas cansado así que decides reposar un poco. Al cabo de unos minutos escuchas unas campanas sonar, y ves como un grupo de personas encapuchadas pasan por debajo de ti. A uno de ellos se le caen unas llaves");
                             reproducirEfecto.reproducir("sonido_arbol.wav");
                             System.out.println("¿Decides bajar a cogerlas?");
@@ -96,7 +96,7 @@ public class Proyecto_final {
                                     System.out.println("Decidiste no bajar a por las llaves");
                                     System.out.println("Decides esperar a que se vayan. Bajas cautelosamente del árbol y guardas las llaves en el bolsillo de tu chaqueta. Pesan bastante y tienen formas extrañas. Están manchadas de algo aceitoso ");
                                     reproducirEfecto.reproducir("sonido_llaves.wav");
-                                    System.out.println("¿Qué camino elegirias?");
+                                    System.out.println("¿Qué camino elegirías?");
                                     opcion = leerOpcion("1. Ir por donde el grupo 👨🏿‍👩🏻‍👧🏾‍👦🏽","2. Ir en dirección contraria al grupo ❌👨🏿‍👩🏻‍👧🏾‍👦🏽",img);
                                     switch (opcion) {
                                         case 1:
@@ -134,7 +134,7 @@ public class Proyecto_final {
                                     }
                             }
                         case 2:
-                            System.out.println("Escoges moverte rapido para pasar el camino");
+                            System.out.println("Escoges moverte rápido para pasar el camino");
                             System.out.println("Pasas corriendo por los enormes charcos de lodo y tropiezas con una piedra marcada con un trébol. Al levantarte sientes una presencia detrás de ti, estás atemorizado, pero curioso ");
                             reproducirEfecto.reproducir("corriendo_bosque.wav");
                             System.out.println("¿Decides darte la vuelta?");
